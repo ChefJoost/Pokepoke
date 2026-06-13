@@ -8,7 +8,8 @@
     "server": "node server/index.js",
     "client": "vite client --port 5173",
     "build": "vite build client",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "setup": "npm install && npm run build"
   },
   "dependencies": {
     "better-sqlite3": "^9.4.3",
