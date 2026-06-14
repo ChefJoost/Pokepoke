@@ -35,7 +35,7 @@ jobs:
         run: npm run build
 
       - name: Verify dist folder
-        run: ls -la dist/
+        run: ls -la client/dist/
 
       - name: Sync Capacitor
         run: npx cap sync android

@@ -1,7 +1,7 @@
 {
   "appId": "com.pokepoke.app",
   "appName": "PokePoke",
-  "webDir": "dist",
+  "webDir": "client/dist",
   "server": {
     "androidScheme": "https"
   },
