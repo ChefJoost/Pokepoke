@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "vite client --port 5173",
-    "build": "vite build client --base ./",
+    "build": "vite build client --base ./ && sed -i 's/ crossorigin//g' client/dist/index.html",
     "cap:add": "npx cap add android",
     "cap:sync": "npm run build && npx cap sync android",
     "cap:build": "npm run cap:sync && cd android && ./gradlew assembleDebug"
