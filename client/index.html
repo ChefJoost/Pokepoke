@@ -2,17 +2,36 @@
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/pokeball.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#1a1a2e" />
-    <title>PokePoke - Kaartencollectie</title>
+    <title>PokePoke</title>
+    <script>
+      // Catch ALL errors and show them on screen
+      function showError(title, detail) {
+        document.body.innerHTML =
+          '<div style="color:#ff6b6b;padding:20px;font-family:monospace;font-size:13px;background:#0f0f1a;min-height:100vh;word-break:break-all">'
+          + '<div style="font-size:24px;margin-bottom:12px">⚠️ ' + title + '</div>'
+          + '<div style="background:#1a1a2e;padding:12px;border-radius:8px">' + detail + '</div>'
+          + '<button onclick="location.reload()" style="margin-top:16px;padding:10px 20px;background:#6c63ff;color:white;border:none;border-radius:8px;font-size:14px">Herstart</button>'
+          + '</div>';
+      }
+      window.onerror = function(msg, src, line, col, err) {
+        showError('JS Fout', msg + '<br><br>' + src + ':' + line);
+        return true;
+      };
+      window.addEventListener('unhandledrejection', function(e) {
+        showError('Promise Fout', String(e.reason));
+      });
+    </script>
   </head>
-  <body>
+  <body style="margin:0;background:#0f0f1a">
+    <div id="debug-msg" style="color:#4ade80;padding:16px;font-family:monospace;font-size:13px;position:fixed;top:0;left:0;right:0;z-index:9999">
+      HTML geladen ✓
+    </div>
     <div id="root">
-      <div style="color:#e8e8f0;padding:32px;font-family:sans-serif;background:#0f0f1a;min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px">
+      <div style="color:#e8e8f0;padding:32px;padding-top:60px;font-family:sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px">
         <div style="font-size:40px">⏳</div>
         <div style="font-size:16px;font-weight:700">PokePoke laden...</div>
-        <div style="font-size:12px;color:#6060a0">Als je dit blijft zien, laadt de app niet.</div>
+        <div style="font-size:12px;color:#9090b0">Wachten op JavaScript...</div>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
