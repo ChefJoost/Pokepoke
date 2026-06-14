@@ -1,0 +1,13 @@
+{
+  "appId": "com.pokepoke.app",
+  "appName": "PokePoke",
+  "webDir": "client/dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

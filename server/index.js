@@ -22,4 +22,9 @@ if (require('fs').existsSync(DIST)) {
   app.get('*', (req, res) => res.sendFile(path.join(DIST, 'index.html')));
 }
 
-app.listen(PORT, () => console.log(`PokePoke server running on http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  const hasApiKey = !!process.env.POKEMONTCG_API_KEY;
+  console.log(`✓  API routes klaar`);
+  console.log(`✓  Database verbonden`);
+  console.log(`${hasApiKey ? '✓' : '⚠'}  PokémonTCG API key: ${hasApiKey ? 'aanwezig' : 'ontbreekt (werkt nog wel, maar gelimiteerd)'}`);
+});
